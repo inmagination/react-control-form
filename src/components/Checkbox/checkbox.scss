@@ -1,0 +1,39 @@
+@import '../../styles/settings/variables.scss';
+@import '../../styles/tools/mixins.scss';
+
+.c-checkbox  {
+    position: relative;
+    font-family: var(--font-family);
+	
+	&__input {
+        display: none;	    
+		
+		&:checked + .c-checkbox__label:before {
+			content: "";
+			background-color: $blue;
+		}
+	}
+	
+	&__label {
+        display: flex;
+        align-items: center;
+        font-size: 1.4rem;
+		cursor: pointer;		
+		
+		&:before {
+            content: '';  
+            display: block;          
+			width: 1.8rem;
+            height: 1.8rem;            
+            margin-right: 1rem;
+            border: 2px solid $darkGrey;
+            background-color: $white;
+		}
+	}
+	
+	&--error {
+		.c-checkbox__label::before {
+			border: 2px solid var(--red);
+		}
+	}
+}

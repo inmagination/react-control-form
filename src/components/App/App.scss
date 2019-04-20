@@ -1,0 +1,102 @@
+@import '../../styles/settings/variables.scss';
+@import '../../styles/tools/mixins.scss';
+
+:root {
+    --font-family: 'Roboto', sans-serif;    
+    --red: #DA1A23;
+    --lightRed: #FF6455;
+    --green: #007629;
+    --lightGreen: #7FDE88;
+    --black: #000;
+}
+
+.app {
+	height: 100%;
+}
+
+.page-wrap {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    padding: 2rem;
+    font-family: var(--font-family);
+    background-image: linear-gradient(-225deg, #473B7B 0%, #3584A7 51%, #30D2BE 100%);
+}
+  
+.mobile {  
+    position: relative;  
+    width: 30rem;
+    margin: 0 3rem;
+    padding: 3rem;   
+    color: $white;  
+    text-align: center;  
+    border-radius: 2rem;
+    box-shadow: 0px 0px 0px 20px $white;
+    background-image: linear-gradient(to left, #243949 0%, #517fa4 100%);
+
+    &::before {
+        position: absolute;
+        content: '';
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);    
+        width: 15rem;
+        height: 2.5rem;    
+        border-bottom-right-radius: 10px;
+        border-bottom-left-radius: 10px;
+        background-color: $white;
+    }
+
+    &__icons {
+        display: block;
+        margin-top: 2rem;  
+        font-size: 2.5rem;        
+    }
+    
+    &__title {  
+        margin-top: 1rem;    
+        font-size: 2.5rem;
+        font-weight: 600;
+        letter-spacing: 2px;
+    }
+    
+    &__subtitle {
+        margin-top: 0.5rem; 
+        font-size: 1.5rem;
+        color: $lightGrey;
+        letter-spacing: 1px;
+    }
+}
+  
+.form {
+    margin-top: 3rem;
+
+    &__result {        
+        margin-bottom: 1rem;
+        padding: 1rem;   
+        font-size: 1.4rem;  
+        color: var(--black);   
+        border: 2px solid transparent; 
+        border-radius: 4px; 
+
+        animation-name: zoomIn;
+        animation-duration: 0.5s;
+        
+
+        &--success {
+            border-color: var(--green);
+            background-color: var(--lightGreen);
+        }
+
+        &--error {
+            color: $white;
+            border-color: var(--red);
+            background-color: var(--lightRed);
+        }
+
+        &__icon {
+            margin-right: 0.5rem;
+        }
+    }
+}

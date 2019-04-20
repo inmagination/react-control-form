@@ -1,0 +1,22 @@
+// --------------------------------------------------------
+// Mixins
+// --------------------------------------------------------
+
+
+@mixin mediaTablet {
+    @media (min-width: #{$breakTablet}) {
+        @content;
+    }
+}
+
+@mixin mediaDesktop {
+    @media (min-width: #{$breakDesktop}) {
+        @content;
+    }
+}
+
+@mixin mediaLarge {
+    @media (min-width: #{$breakLarge}) {
+        @content;
+    }
+}

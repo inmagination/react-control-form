@@ -1,0 +1,14 @@
+@import '../../styles/settings/variables.scss';
+@import '../../styles/tools/mixins.scss';
+
+.c-input {
+    width: 100%;
+    padding: 1rem;
+    font-size: 1.4rem;
+    border: 1px solid transparent;
+    border-radius: 4px;
+
+    &--error {
+        border: 2px solid var(--red);
+	}
+}
