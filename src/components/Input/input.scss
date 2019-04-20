@@ -5,10 +5,10 @@
     width: 100%;
     padding: 1rem;
     font-size: 1.4rem;
-    border: 1px solid transparent;
+    border: 2px solid transparent;
     border-radius: 4px;
 
     &--error {
-        border: 2px solid var(--red);
+        border-color: var(--red);
 	}
 }

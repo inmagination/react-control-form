@@ -27,7 +27,12 @@ class App extends React.Component {
 		let value = e.target.value;
 		this.setState({ [input]: { value } })
 
-		!value
+		let validate;
+		if ( input === 'name') validate = validateName(value);
+		if ( input === 'email') validate = validateEmail(value);
+		if ( input === 'password') validate = validatePassword(value);			
+
+		!value || !validate
 			? this.setState({ [input]: { valid: false } })
 			: this.setState({ [input]: { valid: true } })
 	};
@@ -127,12 +132,12 @@ class App extends React.Component {
 						<Checkbox
 							id='terms'
 							text='Accept conditions'
-							extraClass='margin-bottom-30'
+							extraClass='margin-bottom-20'
 							errorClass={!this.state.terms.isChecked ? 'c-checkbox--error' : ''}	
 							onChange={(e) => this.handleCheck('terms', e) } />	
 
 						{this.state.showResult &&
-							<div className={resultClass} >
+							<div className={resultClass} key={this.state.submitText}>
 								<span className='form__result__icon'>{this.state.submitIcon}</span>
 								{this.state.submitText}
 							</div>
@@ -147,5 +152,21 @@ class App extends React.Component {
 		);
 	}
 }
+
+function validateName(name) {
+	var re = /^[a-zA-Z]{5,}$/;
+	return re.test(String(name).toLowerCase());
+}
+
+function validatePassword(password) {
+	var re = /^[0-9a-zA-Z]{5,}$/;
+	return re.test(String(password).toLowerCase());
+}
+
+function validateEmail(email) {
+    var re = /^(([^<>()\\.,;:\s@"]+(\.[^<>()]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    return re.test(String(email).toLowerCase());
+}
+
 
 export default App;
